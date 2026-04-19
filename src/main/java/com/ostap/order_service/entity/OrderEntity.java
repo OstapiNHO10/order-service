@@ -13,15 +13,28 @@ import java.time.LocalDate;
 public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    Long userId;
+    private Long userId;
 
-    LocalDate time;
+    private LocalDate time;
 
-    double price;
+    private double price;
 
-    OrderStatus orderStatus;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+
+
+    public OrderEntity() {
+    }
+
+    public OrderEntity(Long id, Long userId, LocalDate time, double price, OrderStatus orderStatus) {
+        this.id = id;
+        this.userId = userId;
+        this.time = time;
+        this.price = price;
+        this.orderStatus = orderStatus;
+    }
 
     public Long getId() {
         return id;
